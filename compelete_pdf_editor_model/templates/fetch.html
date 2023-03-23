@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column1 {
+  float: left;
+  width: 33.33%;
+  padding:10px;
+  height: 98vh; /* Should be removed. Only for demonstration */
+}
+.column2 {
+  float: left;
+  width: 66.67%;
+  padding:10px;
+  height: 98vh; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+#marquee1 {
+	overflow-x: marquee-line;
+	marquee-style: scroll;
+	marquee-speed: fast;
+	color:#000080;
+}
+</style>
+</head>
+<body>
+
+
+<div class="row">
+  <div class="column1" style="background-color:#aaa;">
+<!--    <h2>Column 1</h2>-->
+<!--    <p>Some text..</p>-->
+ <form action = "/success" method = "post" enctype="multipart/form-data">
+        <input type="file" name="file"  style="border-color:#8B0000;color:#8B0000;" />
+        <input type = "submit" value="Upload" style="border-color:#8B0000;color:#8B0000;" >
+    </form>
+      <object data="{{user_pdf}}" type="application/pdf" width="100%" height="95%">
+        alt : <a href="{{user_pdf}}">invoice.pdf</a>
+    </object>
+
+  </div>
+  <div class="column2" style="background-color:#bbb;">
+<!--      <marquee style="font-family:Book Antiqua;  color:#000080" bgcolor="#000080" scrollamount="100"></marquee>-->
+<!--      <h3 id="marquee1">****...Tender Details...****</h3>-->
+    <h2>  <marquee style="font-family:Book Antiqua;  color:white" bgcolor="#000080" scrollamount="15">****...Tender Details...****</marquee></h2>
+    <a href="/read"><input type="button" value="Back" style="border-color:#8B0000;color:#8B0000;" ></a>
+
+    <pre style="height:85vh;width:100%;overflow:auto;color:#900C3F;font-family:Times New Roman"><b>{{content}}</b></pre>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+.stylebt{
+border-color:#8B0000;
+color:#8B0000;
+}
+.stylein{
+background-color:#F5F5F5;
+color:#2F4F4F;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding:10px;
+  height: 98vh; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+blink {
+  animation: 2s linear infinite condemned_blink_effect;
+}
+
+@keyframes condemned_blink_effect {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+</style>
+</head>
+<body>
+
+
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+ <form action = "/success" method = "post" enctype="multipart/form-data">
+        <h2 style="font-family:Times New Roman;color:#051443"> <marquee scrollamount="9" bgcolor="#EEE9E9" >****...upload Pdf...****</marquee></h2>
+
+        <input type="file" name="file" style="border-color:#8B0000;color:#8B0000;" />
+        <input type = "submit" value="Upload" class="stylebt">
+    </form>
+      <form action="/getModel" method="post" name="myform">
+          <select name ="ddlmodel" onchange="myform.submit()"style="color:#006400;" >
+              <option style="color:#006400;" >{{selected_mdl}}</option>
+              {% for i in models %}
+              <option style="color:#006400;">{{i}}</option>
+              {%endfor%}
+          </select>
+      </form>
+      <object data="{{user_pdf}}" type="application/pdf" width="100%" height="85%">
+<!--        alt : <a href="{{user_pdf}}"></a>-->
+    </object>
+
+  </div>
+  <div class="column" style="background-color:#aabb;">
+  <h2 style="font-family:Times New Roman;color:blue;">  <marquee scrollamount="8" bgcolor="#C9C9C9">****...Read Pdf...****</marquee></h2>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<blink> <span style="color:red" >{{model_exception}}</span></blink><br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<blink> <span style="color:red" >{{read_exception}}</span></blink><br>
+    <a href="/read"><input type="button" value="Read" class="stylebt"></a>
+    <a href="/fetch_details"><input type="button" value="Fetch_details" class="stylebt"></a>
+
+    <pre style="height:85%;width:100%;overflow:auto;color:#900C3F;border-color:#900C3F;font-family:Times New Roman;">{{content}}</pre>
+  </div>
+  <div class="column" style="background-color:#ccbb;">
+             <marquee scrollamount="6"><h2 style="font-family:Times New Roman;color:#0A2371">****...Labels...****</h2></marquee>
+    <form method="post" action="/add">
+      <table align="center">
+        <tr>
+          <td style="border-color:#006400">key</td>
+          <td><input type="text" name="key" placeholder="enter key here" class="stylein" ></td>
+          <td style="border-color:#006400">value</td>
+          <td><td><input type="text" name="value" placeholder="enter value here" class="stylein" ></td></td>
+        </tr>
+        <tr><td></td>
+        <td><input type="submit" value="add" style="border-color:#006400" class="stylebt"></td></tr>
+      </table>
+    </form>
+    <form action="/update" method="post">
+      <table>
+      {% for i in range(len) %}
+      <tr>
+        <td style="border-color:#006400">Key</td>
+        <td><input type="text" name="key{{i}}" value="{{data[i][0]}}" class="stylein"></td>
+        <td style="border-color:#006400">value</td>
+        <td><input type="text" name="value{{i}}" value="{{data[i][1]}}" class="stylein"></td>
+      </tr>
+      {%endfor%}
+      <tr>
+        <td></td>
+        <td><input type="submit" value="update" style="border-color:#006400" class="stylebt"></td>
+        <td></td>
+        <td><a href="/export"><input type="button" value="Export" class="stylebt"></a></td>
+      </tr>
+    </table>
+    </form>
+
+      <table><tr><td><a href="/export_tables"><input type="button" value="extract tables" class="stylebt"></a></td></tr></table>
+
+  </div>
+</div>
+</body>
+</html>
+
+
+

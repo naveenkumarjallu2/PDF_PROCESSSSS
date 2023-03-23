@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-color:#ccbb;">
+
+     <h2> <marquee style="font-family:Book Antiqua;  color:white" bgcolor="#000080" scrollamount="15">****...Model Setup...****</marquee></h2>
+
+<h5 align="center" style="color:red">{{msg}}</h5>
+<table align="center">
+    <form action="/choose_option" method="post" id = 'ch_opn'>
+    <tr>
+        <td>Choose Option</td>
+        <td><input type="radio" name="choose" value="cm">Create Model</td>
+        <td><input type="radio" name="choose" value ="chm" >Choose Model</td>&nbsp;&nbsp;&nbsp;
+        <td><button type="submit" form="ch_opn" value="Submit">Submit</button></td>
+    </tr>
+
+        </form>
+    {% for i in range(tfn) %}
+    <form action="/create_model" method="post" id = "c_m">
+    <tr>
+        <td>model Name</td>
+        <td><input type="text" name="model_name" placeholder="enter model name here"></td>
+<!--        <td><button type="submit" form="m_n" value="Submit">Submit</button></td>-->
+    </tr>
+<!--        </form>-->
+<!--    <form  action="/create_model" method="post" id = "c_m">-->
+    <tr>
+        <td>create new model</td>
+        <td></td>
+        <td><button type="submit" form="c_m" value="Submit">Submit</button></a></td>
+    </tr>
+        </form>
+
+    {% endfor %}
+    {% for i in range(tfe)%}
+    <tr>
+    <form action="/resume_training" method="post" name="myform">
+        <td>
+          <select name ="ddlmodel" onchange="myform.submit()">
+              <option>{{sld_md}}</option>
+              {% for i in models %}
+              <option>{{i}}</option>
+              {%endfor%}
+
+          </select>
+        </td>
+      </form>
+    </tr>
+
+    {% endfor %}
+    <tr><td><a href="/read"><input type="button" value="Back"></a></td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <script type="text/javascript">
+    function ShowHideDiv() {
+        var chkYes = document.getElementById("chkYes");
+        var dvrange = document.getElementById("dvrange");
+        dvrange.style.display = chkYes.checked ? "block" : "none";
+    }
+</script>
+</head>
+<body style="background-color:#ccbb;">
+<table align="center">
+    <form action="/loading_pdf" method="post" enctype="multipart/form-data" id="loading_pdf">
+
+  <tr>
+    <td><input type="file" name="file" > </td>
+    <td><input type="button" value="upload" onclick="loading_pdf.submit()"></td>
+  </tr>
+    </form>
+        <form action="/testing1" method = "post" id="testing1">
+
+    <tr>
+
+       <td> <h4 >Page Range</h4></td></tr>
+
+    <tr>
+      <td><input type="radio" id="chkNo" name="page" onclick="ShowHideDiv()" value="all pages"/> All Pages</td>
+      <td><input type="radio" id="chkYes" name="page" onclick="ShowHideDiv()" value="select pages" />Select pages</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+    <div id="dvrange" style="display: none">
+        Range :
+        <input type="text" name="start" size="5"/>&nbsp;&nbsp;<input type="text" name="end" size="5" >
+
+    </div>
+        </td>
+    </tr>
+             <tr>
+      <td>
+          <select name="ddlimagetype" >
+              <option selected="selected">Image Type</option>
+              <option name=".jpg">.jpg</option>
+              <option name=".png">.png</option>
+              <option name=".gif">.gif</option>
+              <option name=".pdf">.pdf</option>
+          </select>
+      </td>
+   <td> <input type="text" placeholder="Quality*"name='quality' size="5">&nbsp;&nbsp;<input type="text" placeholder="X Resolution" name="xres" size="5"> <input type="text" placeholder="Y Resolution" name="yres" size="5"> </td>
+
+    </tr>
+            <tr>
+        <td><input type="text" placeholder="Folder Path" name="Floder_path"> </td>
+
+    <td><input type="text" placeholder="File Prefix" name="imagename"> </td>
+
+    </tr>
+            <tr>
+        <td></td>
+        <td><input type="button" value="Reset">
+       <button type="submit" value="Save" form="testing1">Save</button></td>
+    </tr>
+        </form>
+</table>
+</body>
+</html>

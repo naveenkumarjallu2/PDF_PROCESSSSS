@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+    function ShowHideDiv() {
+        var chkYes = document.getElementById("chkYes");
+        var dvrange = document.getElementById("dvrange");
+        dvrange.style.display = chkYes.checked ? "block" : "none";
+    }
+</script>
+</head>
+
+<body style="background-color:#ccbb;">
+
+
+
+<table align="center">
+    <form action="/load_pdf" method="post" enctype="multipart/form-data" id="load_pdf">
+
+  <tr>
+    <td><input type="file" name="file" > </td>
+    <td><input type="button" value="upload" onclick="load_pdf.submit()"></td>
+  </tr>
+    </form>
+    <form action="/test1" method = "post" id="test1">
+    <tr><td>Text Type</td></tr>
+    <tr>
+      <td><input type="radio" name="typeoftext" value="text">Plan Text</td>
+      <td><input type="radio" name="typeoftext" value="table">Structured Table</td>
+    </tr>
+    <tr><td>Page Range</td></tr>
+
+    <tr>
+      <td><input type="radio" id="chkNo" name="pagerange" onclick="ShowHideDiv()" value="all"/> All Pages</td>
+      <td><input type="radio" id="chkYes" name="pagerange" onclick="ShowHideDiv()" value="select" />Select pages</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+    <div id="dvrange" style="display: none">
+        Range :
+        <input type="text" name="start" size="5"/>&nbsp;&nbsp;<input type="text" name="end" size="5" >
+
+    </div>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="text" placeholder="File name*"> </td>
+
+    <td><input type="text" placeholder="Encoding type"> </td>
+
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="button" value="Reset">
+       <button type="submit" value="Save" form="test1">Save</button></td>
+    </tr>
+</form>
+
+</table>
+
+</body>
+</html>
+
+<!--<HTML>-->
+<!--<HEAD>-->
+<!--<script type="text/javascript">-->
+<!--    function ShowHideDiv() {-->
+<!--        var chkYes = document.getElementById("chkYes");-->
+<!--        var dvPassport = document.getElementById("dvPassport");-->
+<!--        dvPassport.style.display = chkYes.checked ? "block" : "none";-->
+<!--    }-->
+<!--</script><FORM>-->
+<!--<span>Do you have Passport?</span>-->
+
+<!--    <input type="radio" id="chkYes" name="chkPassPort" onclick="ShowHideDiv()" />-->
+<!--    Yes-->
+
+<!--    <input type="radio" id="chkNo" name="chkPassPort" onclick="ShowHideDiv()" />-->
+<!--    No-->
+
+<!--<hr/>-->
+
+<!--<div id="dvPassport" style="display: none">-->
+<!--    Passport Number:-->
+<!--    <input type="text" id="txtPassportNumber" />-->
+<!--  SUBMIT<INPUT  TYPE="SUBMIT" >-->
+
+<!--</div>-->
+<!--  </FORM>-->
+<!--</HEAD>-->
+<!--</HTML>-->

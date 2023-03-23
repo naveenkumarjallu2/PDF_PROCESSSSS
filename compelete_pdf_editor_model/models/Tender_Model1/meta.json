@@ -1,0 +1,124 @@
+{
+  "lang":"en",
+  "name":"pipeline",
+  "version":"0.0.0",
+  "spacy_version":">=3.5.0,<3.6.0",
+  "description":"",
+  "author":"",
+  "email":"",
+  "url":"",
+  "license":"",
+  "spacy_git_version":"dec81508d",
+  "vectors":{
+    "width":0,
+    "vectors":0,
+    "keys":0,
+    "name":null,
+    "mode":"default"
+  },
+  "labels":{
+    "tok2vec":[
+
+    ],
+    "ner":[
+      "Any special certification requirements like DPL / NABL / Calibration",
+      "EMD/BID security amount",
+      "Liquidated damages for late delivery",
+      "Online or offline tender submission",
+      "Payment terms and its milestones",
+      "Performance security",
+      "Post warranty annual maintenance terms / Operation and maintenance terms post warranty",
+      "Pre-bid Meeting Date",
+      "Technical eligibility criteria",
+      "Tender pre-bid meeting date",
+      "Tender submission last date and time",
+      "Warranty terms",
+      "special certification requirements like DPL / NABL / Calibration"
+    ]
+  },
+  "pipeline":[
+    "tok2vec",
+    "ner"
+  ],
+  "components":[
+    "tok2vec",
+    "ner"
+  ],
+  "disabled":[
+
+  ],
+  "performance":{
+    "ents_f":0.9787234043,
+    "ents_p":0.9583333333,
+    "ents_r":1.0,
+    "ents_per_type":{
+      "Tender pre-bid meeting date":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "Tender submission last date and time":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "Technical eligibility criteria":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "EMD/BID security amount":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "Warranty terms":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "Payment terms and its milestones":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "Any special certification requirements like DPL / NABL / Calibration":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "Online or offline tender submission":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "Performance security":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "Liquidated damages for late delivery":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "Post warranty annual maintenance terms / Operation and maintenance terms post warranty":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "special certification requirements like DPL / NABL / Calibration":{
+        "p":0.5,
+        "r":1.0,
+        "f":0.6666666667
+      },
+      "Pre-bid Meeting Date":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      }
+    },
+    "tok2vec_loss":56987.4251401487,
+    "ner_loss":485.4250915191
+  }
+}

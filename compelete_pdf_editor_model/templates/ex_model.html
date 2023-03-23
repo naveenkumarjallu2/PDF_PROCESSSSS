@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <script type="text/javascript">
+    function ShowHideDiv() {
+        var chkYes = document.getElementById("chkYes");
+        var dvrange = document.getElementById("dvrange");
+        dvrange.style.display = chkYes.checked ? "block" : "none";
+    }
+</script>
+</head>
+<body style="background-color:#ccbb;">
+<form action="/convert_model" id="modeltest">
+   <table align="center">
+  <tr><td><input type="text" placeholder="Input filepath" name="i_path"></td></tr>
+         <form  action="/convert_model"  id="typemodel">
+     <tr><td><h4 align="left">Type</h4></td></tr>
+
+    <tr>
+      <td><input type="radio" id="chkYes" name="model_type" onclick="ShowHideDiv()" value="model"/> Model</td>
+      <td><input type="radio" id="chkNo" name="model_type" onclick="ShowHideDiv()" value="template" />Template</td>
+    </tr>
+    <tr>
+      <td>
+          <div id="dvrange" style="display: none">
+
+          <select name="ddlmodel">
+        <option selected="selected">Model Type</option>
+        <option>Invoice</option>
+        <option>Tender</option>
+        <option>Contractor</option>
+          </select>
+              <button type="button"  form="typemodel" name="typemodel">save</button>
+          </div>
+
+
+      </td>  </tr>
+
+
+      </form><tr>
+    <td>Extract Data In</td>
+  </tr>
+   <tr>
+   <td><input type="radio" value="xlsx" name="radio">Xlsx &nbsp; <input type="radio" value="Csv" name="radio">Csv &nbsp;<input type="radio" value="Xml" name="radio">Xml &nbsp;<input type="radio" value="Json" name="radio"> Json  </td>
+
+    </tr>
+<tr>
+  <td>  <input type="text" placeholder="Out filepath" name="o_path">
+</td>
+</tr>
+     <tr>
+        <td></td>
+        <td><input type="button" value="Reset">
+       <button type="submit" value="Save" form="modeltest">Save</button></td>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>
+
+function noBack() {
+    window.history.forward();
+}
+
+function preventBack() {
+    window.history.forward();
+}
+ window.onunload = function() {
+    null;
+};
+setTimeout("preventBack()", 0);
